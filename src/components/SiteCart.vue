@@ -1,5 +1,4 @@
 <script setup>
-import { remove } from "@vue/shared";
 import { useStore } from "../store/index.js";
 
 const store = useStore();
@@ -10,17 +9,17 @@ let remove = (index) => {
   console.log(index);
 }
 
+console.log(store.cart)
+
 
 </script>
 
 <template>
   <div class="box">
-    <p v-for="movie of store.cart">Movie Title: {{ movie.title }}</p>
-    <img v-for="movie of store.cart" :src= "`https://image.tmdb.org/t/p/w500${movie.poster}`" 
+    <p v-for="movie of store.cart">Movie Title: {{ movie.data.title }}</p>
+    <img v-for="movie of store.cart" :src= "`https://image.tmdb.org/t/p/w500${movie.data.poster}`" 
     @click = remove(movie.id) />
   </div>
-
-  <h1>{{store.cart}}</h1>
 </template>
 
 <style scoped>

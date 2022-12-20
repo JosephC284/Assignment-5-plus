@@ -4,7 +4,7 @@ import SiteBuy from "../components/SiteBuy.vue";
 
 export const useStore = defineStore("store", {
   state: () => ({
-    movies: {},
+    movies: [],
     cart: {},
   }),
   actions: {
@@ -19,10 +19,10 @@ export const useStore = defineStore("store", {
         }
       );
       for (let movie of data.data.results) {
-        this.movies = {
+        this.movies.push({
           id: movie.id,
           poster: "https://image.tmdb.org/t/p/w500" + movie.poster_path,
-        };
+        });
       }
     },
     addToCart(id, data) {
