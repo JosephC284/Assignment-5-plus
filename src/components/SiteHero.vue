@@ -25,7 +25,7 @@
 
 img {
   position: block;
-  height: 600px;
+  height: 800px;
   width: 100%;
 }
 

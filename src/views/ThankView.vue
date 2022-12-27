@@ -1,13 +1,13 @@
 <script setup>
 import SiteHeader from "../components/SiteHeader.vue";
-import SiteBuy from "../components/SiteBuy.vue";
+import SiteThank from "../components/SiteThank.vue";
 import SiteFooter from "../components/SiteFooter.vue";
 </script>
 
 <template>
   <div>
     <SiteHeader />
-    <SiteBuy />
+    <SiteThank />
     <SiteFooter />
   </div>
 </template>

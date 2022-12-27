@@ -1,41 +1,67 @@
 <script setup>
 import { useStore } from "../store/index.js";
+import router from "../router";
 
 const store = useStore();
-console.log()
+console.log();
 
 let remove = (index) => {
-  delete store.cart[index]
+  delete store.cart[index];
   console.log(index);
+};
+
+function cartEmpty() {
+  router.push("/thanks");
 }
-
-console.log(store.cart)
-
-
 </script>
 
 <template>
-  <div class="box">
-    <p v-for="movie of store.cart">Movie Title: {{ movie.data.title }}</p>
-    <img v-for="movie of store.cart" :src= "`https://image.tmdb.org/t/p/w500${movie.data.poster}`" 
-    @click = remove(movie.id) />
+  <div>
+    <p class="cart">
+      Here are the movies you have selected. If you would like to remove any items from
+      the cart, click on the poster. To purchase your items, please click on the buy
+      button at the bottom of the page.
+    </p>
+    <div class="box">
+      <img
+        v-for="movie of store.cart"
+        :src="`https://image.tmdb.org/t/p/w500${movie.data.poster}`"
+        @click="remove(movie.id)"
+      />
+    </div>
+    <button @click="cartEmpty()">Buy</button>
   </div>
 </template>
 
 <style scoped>
+button {
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
+.cart {
+  margin: 20px;
+  font-size: 20px;
+  border-style: solid;
+  border-width: 4px;
+  background-color: yellow;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 20px;
+}
 .box {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  background-color: deepskyblue;
+  margin: 50px;
+  border-radius: 20px;
 }
 
-p {
-  grid-column-start: 1;
-  grid-column-end: 1;
-}
 img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 200px;
   height: 300px;
-  grid-column-start: 2;
-  grid-column-end: 2;
+  padding: 50px;
 }
 </style>

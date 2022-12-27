@@ -1,6 +1,5 @@
 import { defineStore } from "pinia";
 import axios from "axios";
-import SiteBuy from "../components/SiteBuy.vue";
 
 export const useStore = defineStore("store", {
   state: () => ({
@@ -32,7 +31,6 @@ export const useStore = defineStore("store", {
           data: data,
         };
       }
-      console.log(this.cart);
     },
   },
 });

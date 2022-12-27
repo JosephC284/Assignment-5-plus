@@ -33,7 +33,7 @@ function Login() {
 
 <style scoped>
 .usercontainer {
-  height: 400px;
+  height: 800px;
 }
 input {
   display: block;
@@ -43,13 +43,21 @@ input {
   margin-bottom: 40px;
 }
 
+p {
+  margin: 10px;
+  background-color: yellow;
+  border-style: solid;
+  border-width: 4px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
 .logcontainer {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 40px;
+  margin-top: 100px;
   width: 30%;
-  height: 300px;
+  height: 340px;
   border-style: solid;
   border-color: black;
   border-width: 4px;

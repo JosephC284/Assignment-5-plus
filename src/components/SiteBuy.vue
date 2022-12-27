@@ -6,9 +6,9 @@ import { ref } from "vue";
 
 const store = useStore();
 await store.getMovies();
-
 const showModal = ref(false);
 const selectedId = ref(0);
+
 
 function addCart() {
   router.push("/cart");
@@ -26,7 +26,9 @@ const closeModal = () => {
 
 <template>
   <div>
-    <button @click="addCart()">Cart</button>
+    <div class="bcontainer">
+      <button @click="addCart()">Cart</button>
+    </div>
     <div class="Movieposter">
       <img
         v-for="movie in store.movies"
@@ -39,6 +41,9 @@ const closeModal = () => {
 </template>
 
 <style scoped>
+.bcontainer {
+  height: 40px;
+}
 .Movieposter {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -46,7 +51,16 @@ const closeModal = () => {
 }
 
 img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 250px;
   height: 400px;
+  border-radius: 10px;
+}
+button {
+  margin: 10px;
+  float: right;
+  width: 100px;
 }
 </style>
