@@ -54,14 +54,21 @@ button {
   background-color: deepskyblue;
   margin: 50px;
   border-radius: 20px;
+  min-height: 800px;
 }
 
 img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 200px;
-  height: 300px;
+  width: 300px;
+  height: 450px;
   padding: 50px;
+}
+
+img:hover {
+  width: 400px;
+  height: 600px;
+  transition: 3s;
 }
 </style>

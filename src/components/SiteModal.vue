@@ -58,7 +58,7 @@ let info = (
   margin-top: 20px;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 28px;
+  font-size: 32px;
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 1;
