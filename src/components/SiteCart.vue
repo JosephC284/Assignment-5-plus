@@ -54,7 +54,7 @@ button {
   background-color: deepskyblue;
   margin: 50px;
   border-radius: 20px;
-  min-height: 800px;
+  min-height: 700px;
 }
 
 img {

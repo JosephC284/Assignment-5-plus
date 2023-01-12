@@ -9,7 +9,6 @@ await store.getMovies();
 const showModal = ref(false);
 const selectedId = ref(0);
 
-
 function addCart() {
   router.push("/cart");
 }

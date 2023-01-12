@@ -25,15 +25,15 @@
 
 img {
   position: block;
-  height: 800px;
+  height: 700px;
   width: 100%;
 }
 
 .intro {
   position: absolute;
   top: 30%;
-  left: 60%;
-  transform: translate(-70%, -40%);
+  left: 59%;
+  transform: translate(-70%, -41%);
   font-size: 28px;
   font-family: Arial, Helvetica, sans-serif;
   color: white;
