@@ -1,39 +1,51 @@
 <script setup>
 import { ref } from "vue";
 import router from "../router";
+import { auth } from "../firebase/index";
+import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
+const email = ref("");
+const password1 = ref("");
+const registerUserByGoogle = async () => {
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(auth, provider).then(() => {
+    router.push('./purchase');
+  })
+  console.log(user);
+};
 
-const name = ref("");
-const password = ref("");
-
-let wrongLogin = ref(false);
-function Login() {
-  if (name.value != "tmdb" || password.value != "movies") {
-    wrongLogin.value = true;
-  } else {
+const signInUser = async () => {
+  try {
+    await signInWithEmailAndPassword(auth,email.value,password1.value);
     router.push("/purchase");
+  } catch (error) {
+    console.log(error);
   }
-}
+  return { email, password1 };
+};
+
+
 </script>
 
 <template>
-  <div class="usercontainer">
-    <div class="logcontainer">
-      <h1>Login</h1>
-      <form class="loginpage" @submit.prevent>
-        <input type="text" placeholder="Name" v-model="name" />
-        <input type="password" placeholder="Password" v-model="password" />
-        <input class="enter" type="submit" value="Enter" @click="Login" />
-      </form>
-      <div v-if="wrongLogin">
-        <p>Incorrect username or password</p>
-      </div>
-    </div>
+  <div>
+    <h2>Login by Google</h2>
+    <button @click="registerUserByGoogle">Google</button>
+    <hr />
+    <h2>Login by email</h2>
+    <form @submit.prevent="signInWithEmailAndPassword()">
+      <input v-model="email" type="email" placeholder="email" /> <br />
+      <input v-model="password1" type="password" placeholder="password" /> <br />
+      <input type="submit" value="Login" @click="signInUser()" />
+    </form>
   </div>
 </template>
 
 <style scoped>
 .usercontainer {
   height: 700px;
+}
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
 }
 input {
   display: block;

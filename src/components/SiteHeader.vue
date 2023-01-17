@@ -6,7 +6,7 @@ const props = defineProps(["login"]);
 <template>
   <div class="container1">
     <p>Movie World</p>
-    <RouterLink to="/login" custom v-slot="{ navigate }">
+    <RouterLink to="/account" custom v-slot="{ navigate }">
       <button v-if="login" @click="navigate" role="link">Login</button>
     </RouterLink>
   </div>

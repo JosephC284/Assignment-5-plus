@@ -7,7 +7,6 @@ console.log();
 
 let remove = (index) => {
   delete store.cart[index];
-  console.log(index);
 };
 
 function cartEmpty() {
@@ -16,20 +15,11 @@ function cartEmpty() {
 </script>
 
 <template>
-  <div>
-    <p class="cart">
-      Here are the movies you have selected. If you would like to remove any items from
-      the cart, click on the poster. To purchase your items, please click on the buy
-      button at the bottom of the page.
-    </p>
-    <div class="box">
-      <img
-        v-for="movie of store.cart"
-        :src="`https://image.tmdb.org/t/p/w500${movie.data.poster}`"
-        @click="remove(movie.id)"
-      />
-    </div>
-    <button @click="cartEmpty()">Buy</button>
+  <div v-for="movie in Array.from(store.cart.values())">
+    <img :src="`https://image.tmdb.org/t/p/w500${movie.poster}`" />
+    <h1>{{ movie.title }}</h1>
+    <h2>{{ movie.date }}</h2>
+    <button @click="store.removeFromCart(movie.id)">Remove</button>
   </div>
 </template>
 
@@ -41,15 +31,7 @@ button {
   margin-right: auto;
   margin-bottom: 30px;
 }
-.cart {
-  margin: 20px;
-  font-size: 20px;
-  border-style: solid;
-  border-width: 4px;
-  background-color: yellow;
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 20px;
-}
+
 .box {
   background-color: deepskyblue;
   margin: 50px;
