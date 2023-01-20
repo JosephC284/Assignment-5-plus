@@ -16,8 +16,8 @@
 <style scoped>
 .text {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
-  grid-template-rows: repeat(3,1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
 .comcontainer {
   background-color: black;

@@ -2,7 +2,7 @@
 
 <template>
   <div>
-  <p>Thank you for visiting Movie World, We hope to see you again soon!</p>
+    <p>Thank you for visiting Movie World, We hope to see you again soon!</p>
   </div>
 </template>
 

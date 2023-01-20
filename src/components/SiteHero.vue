@@ -1,5 +1,4 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
   <div class="imgcontainer">
@@ -8,7 +7,10 @@
       alt=""
     />
     <div class="pcontainer">
-      <p class="intro">Here, you can find the most popular movies! Login to gain the ability to purchase these popular movies!</p>
+      <p class="intro">
+        Here, you can find the most popular movies! Login to gain the ability to purchase
+        these popular movies!
+      </p>
     </div>
   </div>
 </template>

@@ -16,5 +16,4 @@ import SiteFooter from "../components/SiteFooter.vue";
 div {
   background-color: grey;
 }
-
 </style>

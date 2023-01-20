@@ -5,11 +5,9 @@ import SiteFooter from "../components/SiteFooter.vue";
 </script>
 
 <template>
-  <SiteHeader login ="yes"/>
-  <SiteHero/>
-  <SiteFooter/>
+  <SiteHeader login="yes" />
+  <SiteHero />
+  <SiteFooter />
 </template>
 
-<style scoped> 
-
-</style>
+<style scoped></style>

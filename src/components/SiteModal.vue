@@ -85,7 +85,7 @@ let info = (
 }
 
 h1 {
-  font-family: Impact, 'Haettenschweiler', sans-serif;
+  font-family: Impact, "Haettenschweiler", sans-serif;
   text-align: center;
   margin: 10px;
   font-size: 40px;
