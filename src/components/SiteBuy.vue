@@ -103,7 +103,7 @@ input {
   margin-bottom: 10px;
 }
 .buycontainer {
-  min-height: 700px;
+  min-height: 600px;
   margin-bottom: 20px;
 }
 .searchcontainer {

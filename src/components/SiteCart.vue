@@ -22,7 +22,7 @@ console.log();
 
 <style scoped>
 .cartcontainer {
-  min-height: 700px;
+  min-height: 600px;
 }
 
 h2 {
@@ -54,8 +54,8 @@ button {
 .box {
   background-color: deepskyblue;
   margin: 50px;
-  margin-left: 30%;
-  margin-right: 30%;
+  margin-left: 25%;
+  margin-right: 25%;
   border-style: solid;
   border-width: 4px;
   border-radius: 20px;

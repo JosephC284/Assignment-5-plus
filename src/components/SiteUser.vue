@@ -29,10 +29,10 @@ const signInUser = async () => {
 </script>
 
 <template>
-  <div>
+  <div class="usercontainer">
     <div class="container1">
       <h2>Login by Google</h2>
-      <button @click="registerUserByGoogle">Google</button>
+      <button @click="registerUserByGoogle()">Google</button>
     </div>
     <div class="container1">
       <h2>Login by Email</h2>
@@ -47,7 +47,7 @@ const signInUser = async () => {
 
 <style scoped>
 .usercontainer {
-  height: 700px;
+  min-height: 700px;
 }
 h2 {
   font-family: Arial, Helvetica, sans-serif;
