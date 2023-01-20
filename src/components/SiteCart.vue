@@ -27,7 +27,7 @@ console.log();
 
 h2 {
   text-align: center;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 40px;
   margin-top: 30px;
 }

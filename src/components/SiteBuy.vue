@@ -3,6 +3,7 @@ import axios from "axios";
 import { ref } from "vue";
 import SiteModal from "../components/SiteModal.vue";
 import { useStore } from "../store/index.js";
+
 const store = useStore();
 const genre = ref(28);
 const criteria = ref("");
@@ -11,6 +12,7 @@ const page = ref(1);
 const totalPages = ref(0);
 const showModal = ref(false);
 const selectedId = ref(0);
+
 const openModal = (id) => {
   showModal.value = true;
   selectedId.value = id;

@@ -7,11 +7,13 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
+
 const passcheck = ref(false);
 const username = ref("");
 const email = ref("");
 const password1 = ref("");
 const password2 = ref("");
+
 const registerUserByEmail = async () => {
   if (password1.value !== password2.value) {
     passcheck.value = true;
@@ -25,10 +27,15 @@ const registerUserByEmail = async () => {
     console.log(error);
   }
 };
+
 const registerUserByGoogle = async () => {
-  const provider = new GoogleAuthProvider();
-  const user = await signInWithPopup(auth, provider);
-  router.push("/purchase");
+  try {
+    const provider = new GoogleAuthProvider();
+    await signInWithPopup(auth, provider);
+    router.push("./purchase");
+  } catch (error) {
+    console.log(error);
+  }
 };
 </script>
 

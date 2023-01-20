@@ -2,9 +2,12 @@
 
 <template>
   <div class="accountcontainer">
-  <div class="infocontainer">
-  <p>Click on the Register button to create a new account. Click on the Login button if you already have an account.</p>
-  </div>
+    <div class="infocontainer">
+      <p>
+        Click on the Register button to create a new account. Click on the Login button if
+        you already have an account.
+      </p>
+    </div>
     <div class="logincontainer">
       <h1>Login</h1>
       <RouterLink to="/Login" custom v-slot="{ navigate }">

@@ -7,24 +7,27 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+
 const email = ref("");
-const password1 = ref("");
-const registerUserByGoogle = async () => {
-  const provider = new GoogleAuthProvider();
-  signInWithPopup(auth, provider).then(() => {
+const password = ref("");
+
+const signInByGoogle = async () => {
+  try {
+    const provider = new GoogleAuthProvider();
+    await signInWithPopup(auth, provider);
     router.push("./purchase");
-  });
-  console.log(user);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-const signInUser = async () => {
+const signInWithEmail = async () => {
   try {
-    await signInWithEmailAndPassword(auth, email.value, password1.value);
+    await signInWithEmailAndPassword(auth, email.value, password.value);
     router.push("/purchase");
   } catch (error) {
     console.log(error);
   }
-  return { email, password1 };
 };
 </script>
 
@@ -32,14 +35,15 @@ const signInUser = async () => {
   <div class="usercontainer">
     <div class="container1">
       <h2>Login by Google</h2>
-      <button @click="registerUserByGoogle()">Google</button>
+      <button @click="signInByGoogle()">Google</button>
     </div>
     <div class="container1">
       <h2>Login by Email</h2>
-      <form @submit.prevent="signInWithEmailAndPassword()">
+      <form @submit.prevent="signInWithEmail()">
         <input v-model="email" type="email" placeholder="email" /> <br />
-        <input v-model="password1" type="password" placeholder="password" /> <br />
-        <input type="submit" value="Login" @click="signInUser()" />
+        <input v-model="password" type="password" placeholder="password" />
+        <br />
+        <input type="submit" value="Login" />
       </form>
     </div>
   </div>
