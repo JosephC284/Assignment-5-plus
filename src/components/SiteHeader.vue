@@ -29,6 +29,6 @@ p {
 }
 
 button {
-  width: 250px;
+  width: 200px;
 }
 </style>

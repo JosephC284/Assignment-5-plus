@@ -28,24 +28,28 @@ const registerUserByEmail = async () => {
 const registerUserByGoogle = async () => {
   const provider = new GoogleAuthProvider();
   const user = await signInWithPopup(auth, provider);
-  console.log(user);
+  router.push("/purchase");
 };
 </script>
 
 <template>
   <div class="registercontainer">
-    <h2>Register by Google</h2>
-    <button @click="registerUserByGoogle">Google</button>
-    <h2>Register by email</h2>
-    <form @submit.prevent="registerUserByEmail()">
-      <input v-model="username" type="text" placeholder="username" />
-      <input v-model="email" type="email" placeholder="email" /> 
-      <input v-model="password1" type="password" placeholder="password" /> 
-      <input v-model="password2" type="password" placeholder="re-enter password" /> 
-      <input type="submit" value="Register" />
-    </form>
-    <div v-if="passcheck">
-      <p>Passwords do not match</p>
+    <div class="container2">
+      <h2>Register by Google</h2>
+      <button @click="registerUserByGoogle">Google</button>
+    </div>
+    <div class="container2">
+      <h2>Register by email</h2>
+      <form @submit.prevent="registerUserByEmail()">
+        <input v-model="username" type="text" placeholder="username" />
+        <input v-model="email" type="email" placeholder="email" />
+        <input v-model="password1" type="password" placeholder="password" />
+        <input v-model="password2" type="password" placeholder="re-enter password" />
+        <input type="submit" value="Register" />
+      </form>
+      <div v-if="passcheck">
+        <p>Passwords do not match</p>
+      </div>
     </div>
   </div>
 </template>
@@ -59,6 +63,15 @@ input {
   padding: 5px;
 }
 
+button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
 h2 {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
@@ -66,5 +79,16 @@ h2 {
 
 .registercontainer {
   min-height: 700px;
+}
+
+.container2 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding: 20px;
+  border-style: solid;
+  border-width: 4px;
+  background-color: deepskyblue;
 }
 </style>

@@ -46,54 +46,85 @@ const search = async (direction) => {
 </script>
 
 <template>
-  <input type="search" v-model="criteria" @keydown.enter="search(0)" />
-  <br />
-  <RouterLink to="/cart" custom v-slot="{ navigate }">
-    <button @click="navigate" role="link">Cart</button>
-  </RouterLink>
-  <br />
-  <select v-model="genre" @change="getGenres()">
-    <option value="Action">Action</option>
-    <option value="Family">Family</option>
-    <option value="Science Fiction">Science Fiction</option>
-    <option value="Adventure">Adventure</option>
-    <option value="Fantasy">Fantasy</option>
-  </select>
-  <template v-if="searchResults.length">
-    <div class="navigation">
-      <button v-show="page > 1" @click="search(-1)">Prev</button>
-      <h1>{{ `Page ${page} of ${totalPages}` }}</h1>
-      <button v-show="page < totalPages" @click="search(1)">Next</button>
+  <div class="buycontainer">
+    <div class="searchcontainer">
+      <h1>Search for Movies</h1>
+      <input type="search" v-model="criteria" @keydown.enter="search(0)" />
+      <RouterLink to="/cart" custom v-slot="{ navigate }">
+        <button class="cart" @click="navigate" role="link">Cart</button>
+      </RouterLink>
+      <select v-model="genre" @change="getGenres()">
+        <option value="Action">Action</option>
+        <option value="Family">Family</option>
+        <option value="Science Fiction">Science Fiction</option>
+        <option value="Adventure">Adventure</option>
+        <option value="Fantasy">Fantasy</option>
+      </select>
     </div>
-  </template>
-  <div class="purchase-container">
     <template v-if="searchResults.length">
-      <img
-        v-for="movie in searchResults"
-        :id="movie.id"
-        @click="openModal(movie.id)"
-        :src="`https://image.tmdb.org/t/p/w500${movie.image}`"
-      />
+      <div class="navigation">
+        <button class="pageturn" v-show="page > 1" @click="search(-1)">Previous</button>
+        <h1>{{ `Page ${page} of ${totalPages}` }}</h1>
+        <button class="pageturn" v-show="page < totalPages" @click="search(1)">
+          Next
+        </button>
+      </div>
     </template>
-    <template v-else>
-      <img class=".Movieposter"
-        v-for="movie in store.movies"
-        :id="movie.id"
-        @click="openModal(movie.id)"
-        :src="`https://image.tmdb.org/t/p/w500${movie.image}`"
-      />
-    </template>
-    <SiteModal v-if="showModal" @toggleModal="closeModal()" :id="selectedId" />
+    <div class="purchase-container">
+      <template v-if="searchResults.length">
+        <img
+          v-for="movie in searchResults"
+          :id="movie.id"
+          @click="openModal(movie.id)"
+          :src="`https://image.tmdb.org/t/p/w500${movie.image}`"
+        />
+      </template>
+      <template v-else>
+        <img
+          class=".Movieposter"
+          v-for="movie in store.movies"
+          :id="movie.id"
+          @click="openModal(movie.id)"
+          :src="`https://image.tmdb.org/t/p/w500${movie.image}`"
+        />
+      </template>
+      <SiteModal v-if="showModal" @toggleModal="closeModal()" :id="selectedId" />
+    </div>
   </div>
 </template>
 
 <style scoped>
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input {
+  display: block;
+  margin-bottom: 10px;
+}
+.buycontainer {
+  min-height: 700px;
+  margin-bottom: 20px;
+}
+.searchcontainer {
+  border-style: solid;
+  border-width: 4px;
+  border-radius: 10px;
+  background-color: yellow;
+  margin: 15px;
+  padding: 20px;
+}
+.cart {
+  float: right;
+  padding: 5px;
+}
 
 .purchase-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
+
 img {
   display: block;
   margin-left: auto;
@@ -103,8 +134,25 @@ img {
   border-radius: 10px;
 }
 .navigation {
+  min-height: 50px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  border-style: solid;
+  border-width: 4px;
+  border-radius: 10px;
+  background-color: deepskyblue;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 15%;
+  margin-right: 15%;
+  padding: 20px;
+}
+.pageturn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
+  height: 30px;
 }
 </style>
